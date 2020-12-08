@@ -1,29 +1,44 @@
-# frontend-imagetech
+# Imagetech
 
-## Project setup
-```
-yarn install
-```
+Teste de frontend aplicado pela ImageTech
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+O que está sendo utilizado:
 
-### Compiles and minifies for production
-```
-yarn build
-```
+- VueJS
+- Vuex
+- VueRouter
+- TypeScript
+- Sass/Scss
+- Docker
+- Jest
+- API: json-server
 
-### Run your unit tests
-```
-yarn test:unit
-```
+## Comandos
 
-### Lints and fixes files
-```
-yarn lint
-```
+```sh
+# Para iniciar a aplicação modo de desenvolvimento
+# Frontend: http://localhost:8080
+# Api: http://localhost:8082 || consumir a api dentro do docker frontend URL: http://api-server/
+$ ./run start
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+# Para instalar packages no frontend
+$ ./run yarn add <package>
+
+# Para reiniciar container
+# api-server | frontend | nginx-prod
+$ ./run restart <container>
+
+# Recriar o container frontend
+$ ./run recreate
+
+# Para pausar os containers
+$ ./run stop
+
+# Acessar o para do container
+# name: frontend, nginx
+$ ./run bash <name>
+
+# Rodar em modo de produção
+# URL: http://localhost
+$ ./run prod
+```
