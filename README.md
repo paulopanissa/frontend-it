@@ -12,6 +12,15 @@ O que está sendo utilizado:
 - Docker
 - API: json-server
 
+## Como iniciar
+
+```
+$ git clone https://github.com/paulopanissa/frontend-it.git
+$ cd frontend-it
+$ cp .env.example .env
+$ ./run start
+```
+
 ## Acessar
 
 ```
