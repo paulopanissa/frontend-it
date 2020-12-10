@@ -16,7 +16,6 @@ printf ""
 # | Start Dev
 # | ----------------------------------------------------------------------------
 function start() {
-  init
   docker-compose up -d api-server frontend $1;
 }
 
@@ -24,7 +23,6 @@ function start() {
 # | Start prod
 # | ----------------------------------------------------------------------------
 function prod() {
-  init
   docker-compose up  -d --build api-server nginx-prod $1;
 }
 
@@ -58,6 +56,8 @@ function bash() {
   case "$1" in
     frontend) docker exec -ti frontend bash $2
      ;;
+    nginx) docker exec -ti nginx-prod bash $2
+     ;;
     *)      echo "Comandos - Valid->frontend"
           ;;
   esac
@@ -77,8 +77,9 @@ function run_test() {
 function recreate() {
   stop
   docker-compose rm -f
-  start --build
+  start 
 }
+
 
 # | ----------------------------------------------------------------------------
 # | Function for check func exists

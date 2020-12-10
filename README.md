@@ -10,15 +10,21 @@ O que está sendo utilizado:
 - TypeScript
 - Sass/Scss
 - Docker
-- Jest
 - API: json-server
+
+## Acessar
+
+```
+Login: admin@admin.com
+Senha: Admin@123
+```
 
 ## Comandos
 
 ```sh
 # Para iniciar a aplicação modo de desenvolvimento
 # Frontend: http://localhost:8080
-# Api: http://localhost:8082 || consumir a api dentro do docker frontend URL: http://api-server/
+# Api: http://localhost:8081
 $ ./run start
 
 # Para instalar packages no frontend
@@ -40,5 +46,5 @@ $ ./run bash <name>
 
 # Rodar em modo de produção
 # URL: http://localhost
-$ ./run prod
+# $ ./run prod
 ```

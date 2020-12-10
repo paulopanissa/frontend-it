@@ -1,23 +1,23 @@
-version: '3.7'
+version: "3.7"
 
 services:
   api-server:
     container_name: api-server
     image: vimagick/json-server
-    command: '-H 0.0.0.0 -p 3000 -w api.json'
+    command: "-H 0.0.0.0 -p 3000 -w db.json"
     ports:
-      - '8081:3000'
+      - "8081:3000"
     volumes:
-      - './data:/data'
+      - "./data:/data"
     restart: always
 
   frontend:
     container_name: frontend
     build:
       context: .
-      target: 'dev-stage'
+      target: "dev-stage"
     ports:
-      - '8080:8080'
+      - "8080:8080"
     volumes:
       - ./:/app
     stdin_open: true
@@ -26,12 +26,18 @@ services:
       - CHOKIDAR_USEPOLLING=true
     depends_on:
       - api-server
+    links:
+      - api-server
     command: /bin/sh -c "yarn serve"
 
   nginx-prod:
     container_name: nginx-prod
     build:
       context: .
-      target: 'prod-stage'
+      target: "prod-stage"
     ports:
-      - '80:80'
+      - "80:80"
+    depends_on:
+      - api-server
+    links:
+      - api-server

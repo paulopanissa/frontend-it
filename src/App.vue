@@ -1,32 +1,37 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view />
+    <transition :name="transitionName" mode="out-in">
+      <router-view />
+    </transition>
   </div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script lang="ts">
+import Vue from "vue";
+import Component from "vue-class-component";
 
-#nav {
-  padding: 30px;
+const DEFAULT_TRANSITION = "slide-right";
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
+@Component
+export default class App extends Vue {
+  transitionName = DEFAULT_TRANSITION;
 
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+  created() {
+    this.$router.beforeEach((to, from, next) => {
+      let transitionName =
+        to.meta.transitionName ||
+        from.meta.transitionName ||
+        DEFAULT_TRANSITION;
+      if (transitionName === "slide") {
+        const toDepth = to.path.split("/").length;
+        const fromDepth = from.path.split("/").length;
+        transitionName = toDepth < fromDepth ? "slide-right" : "slide-left";
+      }
+
+      this.transitionName = transitionName || DEFAULT_TRANSITION;
+
+      next();
+    });
   }
 }
-</style>
+</script>

@@ -1,0 +1,42 @@
+$color-hover-percente: 10%;
+$color-disabled-percente: 30%;
+$color-focus-percente: 15%;
+
+// Primary
+$color-primary: #40407a;
+$color-primary-hover: darken($color-primary, $color-hover-percente);
+$color-primary-disabled: lighten($color-primary, $color-disabled-percente);
+$color-primary-focus: darken($color-primary, $color-focus-percente);
+// Secondary
+$color-secondary: #474787;
+// Success
+$color-success: #33d9b2;
+$color-success-hover: darken($color-success, $color-hover-percente);
+$color-success-disabled: lighten($color-success, $color-disabled-percente);
+$color-success-focus: darken($color-success, $color-focus-percente);
+// Danger
+$color-danger: #ff5252;
+$color-danger-hover: darken($color-danger, $color-hover-percente);
+$color-danger-disabled: lighten($color-danger, $color-disabled-percente);
+$color-danger-focus: darken($color-danger, $color-focus-percente);
+// Warning
+$color-warning: #ffb142;
+$color-warning-hover: darken($color-warning, $color-hover-percente);
+$color-warning-disabled: lighten($color-warning, $color-disabled-percente);
+$color-warning-focus: darken($color-warning, $color-focus-percente);
+
+$color-info: #34ace0;
+$color-info-hover: darken($color-info, $color-hover-percente);
+$color-info-disabled: darken($color-info, $color-disabled-percente);
+$color-info-focus: darken($color-info, $color-focus-percente);
+
+$color-inverter: #ffda79;
+$color-inverter-hover: darken($color-inverter, $color-hover-percente);
+$color-inverter-disabled: lighten($color-inverter, $color-disabled-percente);
+$color-inverter-focus: darken($color-inverter, $color-focus-percente);
+
+$color-white: #fff;
+$color-gray-1: darken($color-white, 5%);
+$color-gray-2: darken($color-white, 10%);
+$color-gray-3: darken($color-white, 15%);
+$color-black: #000;
