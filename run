@@ -11,6 +11,9 @@ function_exists() {
 
 printf ""
 
+function build() {
+  docker-compose build
+}
 
 # | ----------------------------------------------------------------------------
 # | Start Dev
@@ -107,6 +110,8 @@ case "$1" in
   yarn) function_exists install && install $@
     ;;
   npm)  function_exists install && install $@
+    ;;
+  build) function_exists build && build $2
     ;;
   start) function_exists start && start $2
     ;;

@@ -28,7 +28,7 @@ services:
       - api-server
     links:
       - api-server
-    command: /bin/sh -c "yarn serve"
+    command: /bin/sh -c "yarn && yarn serve"
 
   nginx-prod:
     container_name: nginx-prod
