@@ -8,7 +8,11 @@ module.exports = {
       }
     }
   },
-  lintOnSave: false,
+  lintOnSave: true,
+  chainWebpack: config => {
+    config.module.rules.delete("eslint");
+    config.plugins.delete("fork-ts-checker");
+  },
   devServer: {
     watchOptions: {
       ignored: /node_modules/,
